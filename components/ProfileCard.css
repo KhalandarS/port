@@ -224,3 +224,46 @@
 .pc-contact-btn:hover {
     opacity: 0.9;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .pc-card-wrapper {
+        width: 100%;
+        max-width: 320px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .pc-details h3 {
+        font-size: 1.2rem;
+    }
+
+    .pc-details p {
+        font-size: 0.8rem;
+    }
+
+    .pc-user-info {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        padding: 8px;
+    }
+
+    .pc-mini-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .pc-handle {
+        font-size: 0.85rem;
+    }
+
+    .pc-status {
+        font-size: 0.75rem;
+    }
+
+    .pc-contact-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+}
