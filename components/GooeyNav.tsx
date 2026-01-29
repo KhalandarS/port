@@ -52,6 +52,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         };
     };
 
+    // Particle animation disabled - makeParticles function commented out
+    /*
     const makeParticles = (element: HTMLElement) => {
         const d: [number, number] = particleDistances;
         const r = particleR;
@@ -92,6 +94,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             }, 30);
         }
     };
+    */
 
     const updateEffectPosition = (element: HTMLElement) => {
         if (!containerRef.current || !filterRef.current || !textRef.current) return;

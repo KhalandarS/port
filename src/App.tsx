@@ -49,8 +49,7 @@ function App() {
     }, [lastScrollY]);
 
     const handleResumeDownload = () => {
-        // Replace with your actual resume file path
-        const resumeUrl = '/resume.pdf';
+        const resumeUrl = `${import.meta.env.BASE_URL || '/'}resume.pdf`;
         const link = document.createElement('a');
         link.href = resumeUrl;
         link.download = 'Khalandar_Resume.pdf';
@@ -138,7 +137,7 @@ function App() {
                                 handle="khalandar"
                                 status="Coding"
                                 contactText="Contact"
-                                avatarUrl="/profile_vignette.png"
+                                avatarUrl={`${import.meta.env.BASE_URL}profile_vignette.png`}
                                 showUserInfo={false}
                                 enableTilt={true}
                                 enableMobileTilt={true}

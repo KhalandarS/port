@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './LiquidButton.css';
 
-interface LiquidButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LiquidButtonProps {
     variant?: 'default' | 'destructive' | 'secondary' | 'ghost';
     size?: 'default' | 'sm' | 'lg' | 'icon';
     delay?: number;
@@ -10,6 +10,8 @@ interface LiquidButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
     hoverScale?: number;
     tapScale?: number;
     children: React.ReactNode;
+    className?: string;
+    onClick?: () => void;
 }
 
 export const LiquidButton: React.FC<LiquidButtonProps> = ({
@@ -21,7 +23,7 @@ export const LiquidButton: React.FC<LiquidButtonProps> = ({
     tapScale = 0.95,
     children,
     className = '',
-    ...props
+    onClick
 }) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -33,7 +35,7 @@ export const LiquidButton: React.FC<LiquidButtonProps> = ({
             whileHover={{ scale: hoverScale }}
             whileTap={{ scale: tapScale }}
             transition={{ duration: 0.2 }}
-            {...props}
+            onClick={onClick}
         >
             <span className="liquid-button__content">{children}</span>
             <motion.div
