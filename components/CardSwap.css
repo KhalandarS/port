@@ -77,7 +77,23 @@
 
 @media (max-width: 768px) {
     .card-swap-container {
-        transform: scale(0.75) translate(25%, 25%);
+        /* Reset positioning for mobile centering */
+        position: relative !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: 50% !important;
+        top: 0 !important;
+
+        /* Force full viewport width and disable fixed width issues */
+        width: 100vw !important;
+        max-width: 100% !important;
+
+        /* Adjust scale and center horizontally */
+        transform: translateX(-50%) scale(0.65) !important;
+        transform-origin: top center !important;
+
+        margin: 2rem 0 !important;
+        overflow: visible !important;
     }
 
     .skill-card-title {
@@ -91,11 +107,5 @@
     .skill-item {
         font-size: 0.8rem;
         padding: 0.3rem 0.7rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .card-swap-container {
-        transform: scale(0.55) translate(25%, 25%);
     }
 }

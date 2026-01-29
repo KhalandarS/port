@@ -218,6 +218,9 @@
 
 .skills-container {
     margin-left: 10px;
+    height: 580px;
+    position: relative;
+    overflow: visible;
 }
 
 .skills-heading {
@@ -392,6 +395,7 @@ html {
     }
 
     .resume-btn {
+        display: none !important;
         padding: 0.5rem 1rem;
         font-size: 0.8rem;
         white-space: nowrap;
@@ -453,6 +457,14 @@ html {
     .skills-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .skills-container {
+        height: 600px !important;
+        margin-left: 0 !important;
+        margin-top: 2rem !important;
+        width: 100% !important;
+        overflow: visible !important;
     }
 
     .skills-heading {
