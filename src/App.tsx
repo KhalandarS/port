@@ -63,16 +63,7 @@ function App() {
             <header className={`navbar ${isNavbarVisible ? 'navbar-visible' : 'navbar-hidden'}`}>
                 <div className="navbar-content">
                     <div className="nav-left">
-                        <GooeyNav
-                            items={navItems}
-                            particleCount={15}
-                            particleDistances={[90, 10]}
-                            particleR={100}
-                            initialActiveIndex={0}
-                            animationTime={600}
-                            timeVariance={300}
-                            colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-                        />
+                        <GooeyNav items={navItems} />
                     </div>
                     <LiquidButton
                         variant="default"

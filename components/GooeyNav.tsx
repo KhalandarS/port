@@ -8,23 +8,11 @@ interface GooeyNavItem {
 
 export interface GooeyNavProps {
     items: GooeyNavItem[];
-    animationTime?: number;
-    particleCount?: number;
-    particleDistances?: [number, number];
-    particleR?: number;
-    timeVariance?: number;
-    colors?: number[];
     initialActiveIndex?: number;
 }
 
 const GooeyNav: React.FC<GooeyNavProps> = ({
     items,
-    animationTime = 600,
-    particleCount = 15,
-    particleDistances = [90, 10],
-    particleR = 100,
-    timeVariance = 300,
-    colors = [1, 2, 3, 1, 2, 3, 1, 4],
     initialActiveIndex = 0
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -34,25 +22,15 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     const [activeIndex, setActiveIndex] = useState<number>(initialActiveIndex);
 
     const noise = (n = 1) => n / 2 - Math.random() * n;
+    const particleCount = 15;
+    const colors = [1, 2, 3, 1, 2, 3, 1, 4];
 
     const getXY = (distance: number, pointIndex: number, totalPoints: number): [number, number] => {
         const angle = ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
         return [distance * Math.cos(angle), distance * Math.sin(angle)];
     };
 
-    const createParticle = (i: number, t: number, d: [number, number], r: number) => {
-        let rotate = noise(r / 10);
-        return {
-            start: getXY(d[0], particleCount - i, particleCount),
-            end: getXY(d[1] + noise(7), particleCount - i, particleCount),
-            time: t,
-            scale: 1 + noise(0.2),
-            color: colors[Math.floor(Math.random() * colors.length)],
-            rotate: rotate > 0 ? (rotate + r / 20) * 10 : (rotate - r / 20) * 10
-        };
-    };
-
-    // Particle animation disabled - makeParticles function commented out
+    // Particle animation disabled - makeParticles and createParticle functions removed
     /*
     const makeParticles = (element: HTMLElement) => {
         const d: [number, number] = particleDistances;
