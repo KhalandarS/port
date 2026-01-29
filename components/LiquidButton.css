@@ -1,0 +1,108 @@
+.liquid-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100vw;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.liquid-button__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.liquid-button__liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--liquid-button-background-color, linear-gradient(135deg, #5227FF 0%, #FF9FFC 100%));
+    z-index: 1;
+    border-radius: 100vw 100vw 0 0;
+}
+
+/* Variants */
+.liquid-button--default {
+    background: white;
+    color: black;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.liquid-button--default:hover .liquid-button__content {
+    color: var(--liquid-button-color, white);
+}
+
+.liquid-button--secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.liquid-button--secondary:hover .liquid-button__content {
+    color: var(--liquid-button-color, white);
+}
+
+.liquid-button--ghost {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.liquid-button--ghost:hover .liquid-button__content {
+    color: var(--liquid-button-color, white);
+}
+
+.liquid-button--destructive {
+    background: #ef4444;
+    color: white;
+}
+
+/* Sizes */
+.liquid-button--default {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+.liquid-button--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.liquid-button--lg {
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+}
+
+.liquid-button--icon {
+    padding: 0.7rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Enhanced hover effect */
+.liquid-button:hover {
+    box-shadow: 0 6px 20px rgba(82, 39, 255, 0.3);
+}
+
+.liquid-button--default .liquid-button__liquid {
+    height: 100% !important;
+}
+
+.liquid-button--secondary .liquid-button__liquid {
+    height: 100% !important;
+    background: linear-gradient(135deg, #5227FF 0%, #7B52FF 100%);
+}
+
+.liquid-button--ghost .liquid-button__liquid {
+    height: 100% !important;
+    background: rgba(82, 39, 255, 0.2);
+}

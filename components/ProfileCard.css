@@ -1,0 +1,226 @@
+:root {
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    --pointer-from-center: 0;
+    --pointer-from-top: 0.5;
+    --pointer-from-left: 0.5;
+    --card-opacity: 0;
+    --rotate-x: 0deg;
+    --rotate-y: 0deg;
+    --background-x: 50%;
+    --background-y: 50%;
+    --grain: none;
+    --icon: none;
+    --behind-gradient: none;
+    --behind-glow-color: rgba(125, 190, 255, 0.67);
+    --behind-glow-size: 25%;
+    --inner-gradient: none;
+    --sunpillar-1: hsl(2, 100%, 73%);
+    --sunpillar-2: hsl(53, 100%, 69%);
+    --sunpillar-3: hsl(93, 100%, 69%);
+    --sunpillar-4: hsl(176, 100%, 76%);
+    --sunpillar-5: hsl(228, 100%, 74%);
+    --sunpillar-6: hsl(283, 100%, 73%);
+    --sunpillar-clr-1: var(--sunpillar-1);
+    --sunpillar-clr-2: var(--sunpillar-2);
+    --sunpillar-clr-3: var(--sunpillar-3);
+    --sunpillar-clr-4: var(--sunpillar-4);
+    --sunpillar-clr-5: var(--sunpillar-5);
+    --sunpillar-clr-6: var(--sunpillar-6);
+    --card-radius: 30px;
+}
+
+.pc-card-wrapper {
+    position: relative;
+    width: 450px;
+    height: 550px;
+    perspective: 1000px;
+    z-index: 10;
+    cursor: pointer;
+    touch-action: none;
+}
+
+.pc-behind {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center,
+            var(--behind-glow-color) 0%,
+            transparent var(--behind-glow-size));
+    filter: blur(40px);
+    opacity: 0.5;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.pc-card-shell {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--card-radius);
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+    transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+}
+
+.pc-card {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--card-radius);
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.pc-inside {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pc-shine {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--pointer-x) var(--pointer-y),
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.pc-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg,
+            transparent 40%,
+            rgba(255, 255, 255, 0.1) 45%,
+            rgba(255, 255, 255, 0.1) 55%,
+            transparent 60%);
+    opacity: var(--pointer-from-center);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.pc-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.pc-avatar-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.pc-card-wrapper:hover .avatar {
+    transform: scale(1.05);
+}
+
+.pc-details {
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(0, 0, 0, 0.8));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.pc-card-wrapper:hover .pc-details {
+    transform: translateY(0);
+}
+
+.pc-details h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.pc-details p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+}
+
+.pc-user-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(150%);
+    transition: transform 0.3s ease;
+}
+
+.pc-card-wrapper:hover .pc-user-info {
+    transform: translateY(0);
+}
+
+.pc-mini-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+}
+
+.pc-mini-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pc-user-text {
+    flex: 1;
+}
+
+.pc-handle {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.pc-status {
+    color: #4ade80;
+    font-size: 0.8rem;
+}
+
+.pc-contact-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.pc-contact-btn:hover {
+    opacity: 0.9;
+}
