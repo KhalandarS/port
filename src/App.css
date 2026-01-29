@@ -391,6 +391,7 @@ html {
     }
 
     .nav-left {
+        display: none !important;
         flex: 0 1 auto;
     }
 
@@ -460,7 +461,7 @@ html {
     }
 
     .skills-container {
-        height: 600px !important;
+        height: 380px !important;
         margin-left: 0 !important;
         margin-top: 2rem !important;
         width: 100% !important;
