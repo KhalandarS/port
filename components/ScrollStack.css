@@ -116,9 +116,10 @@
         height: auto !important;
         min-height: auto !important;
         padding: 1.5rem !important;
-        margin: 15px 0 !important;
+        margin: 15px auto !important;
         border-radius: 20px !important;
         width: 100% !important;
+        /* Full width of container */
         max-width: 100% !important;
     }
 

@@ -229,8 +229,9 @@
 @media (max-width: 768px) {
     .pc-card-wrapper {
         width: 100%;
-        max-width: 320px;
-        height: 400px;
+        max-width: 300px;
+        /* Reduced from 320px for safety */
+        height: 380px;
         margin: 0 auto;
     }
 
