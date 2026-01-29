@@ -507,12 +507,21 @@ html {
     }
 
     /* Ensure sections don't overflow */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
     .app {
         overflow-x: hidden;
+        width: 100%;
     }
 
     .main-content {
         overflow-x: hidden;
+        width: 100%;
     }
 }
 
